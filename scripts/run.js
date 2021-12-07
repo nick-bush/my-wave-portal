@@ -17,6 +17,10 @@ const main = async () => {
     console.log('contract deployed to: ',waveContract.address);
     
     console.log('contract deployed by: ',owner.address);
+
+    accountBalance = await  owner.getBalance();
+
+    console.log('Owner balance:', accountBalance)
     
     //manually call the smart contract functions
     //get wave count
