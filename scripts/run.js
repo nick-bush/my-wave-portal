@@ -27,15 +27,17 @@ const main = async () => {
     let waveCount;
     waveCount = await waveContract.getTotalWaves();
     //wave
-    let waveTxn = await waveContract.wave();
+    let waveTxn = await waveContract.wave('yo king. whats good.');
+    //wauit for the transaction to to be mined
     await waveTxn.wait();
     //get count again
     waveCount = await waveContract.getTotalWaves();
     //simulate our rando waving
-    waveTxn = await waveContract.connect(randomPerson).wave();
+    waveTxn = await waveContract.connect(randomPerson).wave('sup brah');
     await waveTxn.wait();
 
-    waveCount = await waveContract.getTotalWaves();
+    let allWaves = await waveContract.getAllWaves();
+    console.log(allWaves);
 };
 
 const runMain = async () => {
